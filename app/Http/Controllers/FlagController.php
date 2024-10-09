@@ -40,13 +40,26 @@ class FlagController extends Controller
             'flag_string' => 'required|string|max:255',
         ]);
 
-        Flag::create([
-            'name' => $request->name,
-            'flag_string' => $request->flag_string,
-        ]);
+        $correctFlag = 'VenFlag{C5ru5hNiVeN51A}';
 
-        return redirect()->route('flags.index')->with('success', 'Flag created successfully');
+        if ($request->flag_string === $correctFlag) {
+            Flag::create([
+                'name' => $request->name,
+                'flag_string' => $request->flag_string,
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Flag submitted successfully!',
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'The flag you entered is incorrect.',
+        ], 400);
     }
+
 
     /**
      * Display the specified resource.

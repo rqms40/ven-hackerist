@@ -31,37 +31,29 @@
     <script>
         document.getElementById('flagForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const flagString = document.getElementById('flag_string').value;
-            if (flagString === 'VenFlag{C5ru5hNiVeN51A}') {
-                $.ajax({
-                    url: '{{ route('flags.store') }}',
-                    method: 'POST',
-                    data: $('#flagForm').serialize(),
-                    success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Flag Submitted Successfully!',
-                            text: 'You have submitted the correct flag. The attackers will withhold the leak. Great job, Cyber Defense Incident Responder!'
-                        }).then(() => {
-                            // Clear the input fields
-                            document.getElementById('flagForm').reset();
-                        });
-                    },
-                    error: function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'There was an error storing the flag.'
-                        });
-                    }
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Try Again',
-                    text: 'The flag you entered is incorrect.'
-                });
-            }
+
+            $.ajax({
+                url: '{{ route('flags.store') }}',
+                method: 'POST',
+                data: $('#flagForm').serialize(),
+                success: function(response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Flag Submitted Successfully!',
+                        text: response.message
+                    }).then(() => {
+                        document.getElementById('flagForm').reset();
+                    });
+                },
+                error: function(xhr) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: xhr.responseJSON.message ||
+                            'There was an error storing the flag.'
+                    });
+                }
+            });
         });
     </script>
 </body>
