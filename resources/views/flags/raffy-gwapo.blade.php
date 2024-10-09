@@ -14,6 +14,7 @@
         <table class="table table-bordered mt-4">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Flag String</th>
                     <th>Submitted At</th>
@@ -22,6 +23,7 @@
             <tbody>
                 @foreach ($flags as $flag)
                     <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $flag->name }}</td>
                         <td>{{ $flag->flag_string }}</td>
                         <td>{{ $flag->created_at->format('d-m-Y H:i') }}</td>
