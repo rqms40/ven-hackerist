@@ -42,6 +42,9 @@
                             icon: 'success',
                             title: 'Flag Submitted Successfully!',
                             text: 'You have submitted the correct flag. The attackers will withhold the leak. Great job, Cyber Defense Incident Responder!'
+                        }).then(() => {
+                            // Clear the input fields
+                            document.getElementById('flagForm').reset();
                         });
                     },
                     error: function() {
