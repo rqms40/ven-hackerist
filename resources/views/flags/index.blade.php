@@ -40,8 +40,8 @@
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Congratulations!',
-                            text: 'You have entered the correct flag!'
+                            title: 'Flag Submitted Successfully!',
+                            text: 'You have submitted the correct flag. The attackers will withhold the leak. Great job, Cyber Defense Incident Responder!'
                         });
                     },
                     error: function() {
