@@ -16,7 +16,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Flag String</th>
-                    <th>Created At</th>
+                    <th>Submitted At</th>
                 </tr>
             </thead>
             <tbody>
