@@ -50,7 +50,7 @@ class FlagController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'Flag submitted successfully!',
+                'message' => 'You have submitted the correct flag. The attackers will withhold the leak. Great job, Cyber Defense Incident Responder!',
             ]);
         }
 
