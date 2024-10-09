@@ -41,7 +41,7 @@
                         Swal.fire({
                             icon: 'success',
                             title: 'Congratulations!',
-                            text: 'You have entered the correct flag and it has been stored.'
+                            text: 'You have entered the correct flag!'
                         });
                     },
                     error: function() {
